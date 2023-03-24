@@ -1,0 +1,10 @@
+[
+    {
+        "title": "JSON",
+        "content": "Stands for JavaScript Ojbect Notation."
+    },
+    {
+        "title": "MVC",
+        "content": "Stands for Models, Views, and Controllers and is a great way to organize your files"
+    }
+]
