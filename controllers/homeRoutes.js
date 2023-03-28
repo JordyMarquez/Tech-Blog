@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         });
     
         const blogPosts = blogpostData.map((blogPost) => blogPost.get({ plain: true }));
-
+        console.log(blogPosts)
         res.render('homepage', {
             blogPosts,
             loggedIn: req.session.loggedIn
@@ -28,7 +28,7 @@ router.get('/blogpost/:id', async (req, res) => {
      const blogpostData = await Blogpost.findByPk(req.params.id, {
         include: [{ model: User}]
     });
-
+// if i want to find something other than primarykey; try find(); findByPk looks for primary key in models
     const blogPost = blogpostData.get({ plain: true});
 
     res.render('blogpost', {
@@ -72,7 +72,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/dashboard');
+        res.redirect('/dashboard'); // route on server
         return;
     }
     res.render('login');
